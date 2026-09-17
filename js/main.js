@@ -527,7 +527,7 @@
     var requirement = data.get('requirement') || '';
     var message = data.get('message') || '';
 
-    var subject = 'Fabric Enquiry — ' + name + (requirement ? ' (' + requirement + ')' : '');
+    var subject = 'Fabric Enquiry: ' + name + (requirement ? ' (' + requirement + ')' : '');
     var body = [
       'Name: ' + name,
       'Company: ' + company,
