@@ -299,10 +299,20 @@
   var header = $('#header');
   var progress = $('#progress');
   var lastY = 0;
+  var banner = $('#concept-banner');
+  function placeHeader(y) {
+    var tucked = y > 40;
+    if (banner) banner.classList.toggle('is-tucked', tucked);
+    var bh = banner ? banner.offsetHeight : 0;
+    document.documentElement.style.setProperty('--header-top', (tucked ? 0 : bh) + 'px');
+  }
+  placeHeader(window.scrollY);
+  window.addEventListener('resize', function () { placeHeader(window.scrollY); });
   function onScroll() {
     var y = window.scrollY;
     var max = document.documentElement.scrollHeight - window.innerHeight;
     if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    placeHeader(y);
     header.classList.toggle('is-scrolled', y > 40);
     if (!document.body.classList.contains('menu-open')) header.classList.toggle('is-hidden', y > lastY && y > 400);
     lastY = y;
