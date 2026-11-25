@@ -1,0 +1,12 @@
+# Local backups and build outputs
+_old-site/
+*.zip
+
+# Claude Code local settings (keep launch.json + serve.py for local preview)
+.claude/settings.local.json
+
+# OS / editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
